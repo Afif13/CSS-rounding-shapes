@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CSS Paint API: Rounding Shapes</title>
+  <meta name="description" content="Round the corners of complex shapes using the CSS Paint API from the Houdini project">
+  <meta name="author" content="Temani Afif">
+
+  <meta property="og:title" content="CSS Paint API: Rounding Shapesr">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://afif13.github.io/CSS-rounding-shapes/">
+  <meta property="og:description" content="Round the corners of complex shapes using the CSS Paint API from the Houdini project">
+  <meta property="og:image" content="https://css-tricks.com/wp-content/uploads/2021/10/header-rounding-shapes.png">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<h1>CSS Paint API: Rounding Shapes</h1>
+<hr>
+<div class="box" style="--path:50% 0,100% 100%,0 100%;"></div>
+<div class="box" style="--path:50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%;--b:url(https://picsum.photos/id/1074/300/300) center/cover;--v:50px"> </div>
+<div class="box" style="--path:50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%;--b:conic-gradient(blue,purple,orange,green,blue);--radius:8px"> </div>
+<div class="box" style="--path:0 0,50% 20px,100% 0,calc(100% - 20px) 50%,100% 100%,50% calc(100% - 20px),0 100%,20px 50%;--b:url(https://picsum.photos/id/1069/300/300) center/cover;--radius:20px"> </div>
+<hr>
+<div class="box alt"></div>
+<div class="box alt" style="--path:50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%;--b:url(https://picsum.photos/id/1074/300/300) center/cover;--v:50px"> </div>
+<div class="box alt" style="--path:50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%;--b:conic-gradient(blue,purple,orange,green,blue);--radius:8px"> </div>
+<div class="box alt" style="--path:0 0,50% 20px,100% 0,calc(100% - 20px) 50%,100% 100%,50% calc(100% - 20px),0 100%,20px 50%;--b:url(https://picsum.photos/id/1069/300/300) center/cover;--radius:20px"> </div>
+
+<script>
+if(CSS.paintWorklet) {              
+  CSS.paintWorklet.addModule('src/rounding-shapes.js');
+} else {
+  console.log("Your browser doesn't support the Paint API :(");
+}
+</script>
+</body>
+</html>

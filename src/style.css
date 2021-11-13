@@ -11,17 +11,15 @@
 .box {
   width:200px;
   height:200px;
-  display:inline-block;
+  display:inline-grid;
   --t:0;
   -webkit-mask:paint(rounding-shapes);
 }
 .box:before {
   content:"";
-  display:block;
-  height:100%;
   background:var(--b,red);
 }
-.alt:before {
+.border:before {
   --t:1;
   -webkit-mask:paint(rounding-shapes);
 }
